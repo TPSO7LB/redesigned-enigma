@@ -1,0 +1,37 @@
+function calculateGroup() {
+  var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+  var lastRow = sheet.getLastRow();
+  
+  for (var row = 2; row <= lastRow; row++) {
+    var hValue = sheet.getRange("H" + row).getValue();
+    var oValue = sheet.getRange("O" + row).getValue();
+    
+    if (hValue == "น้อยกว่า 3,000 บาท" && oValue == "ช่วยเหลือตัวเองได้") {
+      sheet.getRange("P" + row).setValue("กลุ่ม 2 พอช่วยเหลือตัวเองได้");
+    }
+    else if (hValue == "น้อยกว่า 3,000 บาท" && oValue == "ช่วยเหลือตัวเองได้บ้าง") {
+      sheet.getRange("P" + row).setValue("กลุ่ม 2 พอช่วยเหลือตัวเองได้");
+    }
+    else if (hValue == "3,000 บาท ขึ้นไป แต่ไม่เกิน 5,500 บาท" && oValue == "ช่วยเหลือตัวเองได้") {
+      sheet.getRange("P" + row).setValue("กลุ่ม 2 พอช่วยเหลือตัวเองได้");
+    }
+    else if (hValue == "3,000 บาท ขึ้นไป แต่ไม่เกิน 5,500 บาท" && oValue == "ช่วยเหลือตัวเองได้บ้าง") {
+      sheet.getRange("P" + row).setValue("กลุ่ม 2 พอช่วยเหลือตัวเองได้");
+    }
+    else if (hValue == "5,500 บาท ขึ้นไป แต่ไม่เกิน 8,000 บาท" && oValue == "ช่วยเหลือตัวเองได้") {
+      sheet.getRange("P" + row).setValue("กลุ่ม 1 มีศักยภาพ");
+    }
+    else if (hValue == "5,500 บาท ขึ้นไป แต่ไม่เกิน 8,000 บาท" && oValue == "ช่วยเหลือตัวเองได้บ้าง") {
+      sheet.getRange("P" + row).setValue("กลุ่ม 1 มีศักยภาพ");
+    }
+    else if (hValue == "มากกว่า 8,000 บาท" && oValue == "ช่วยเหลือตัวเองได้") {
+      sheet.getRange("P" + row).setValue("กลุ่ม 1 มีศักยภาพ");
+    }
+    else if (hValue == "มากกว่า 8,000 บาท" && oValue == "ช่วยเหลือตัวเองได้บ้าง") {
+      sheet.getRange("P" + row).setValue("กลุ่ม 1 มีศักยภาพ");
+    }
+    else {
+      sheet.getRange("P" +row).setValue("กลุ่ม 3 ภาวะพึ่งพิง");
+}
+}
+}
